@@ -1,6 +1,6 @@
 {
   "name": "legal-docs-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for generating legal documents — CGV, CGU, NDA, privacy policies, freelance contracts, and more. For freelancers, startups, and SMBs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
     "mentions-legales",
     "devis"
   ],
-  "author": "Thomas Gorisse",
+  "author": "SceneView Tools",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
