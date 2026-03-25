@@ -1,0 +1,31 @@
+{
+  "name": "legal-docs-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for generating legal documents (CGV, CGU, NDA, privacy policies, freelance contracts, devis, mentions legales, ToS). For freelancers, startups, and SMBs.",
+  "author": "Thomas Gorisse",
+  "license": "MIT",
+  "tools": [
+    "generate_cgv",
+    "generate_cgu",
+    "generate_privacy_policy",
+    "generate_nda",
+    "generate_freelance_contract",
+    "generate_mentions_legales",
+    "generate_devis",
+    "generate_terms_of_service"
+  ],
+  "pricing": {
+    "free": {
+      "documents_per_month": 5,
+      "price": 0
+    },
+    "pro": {
+      "documents_per_month": -1,
+      "price_eur": 19.99,
+      "billing": "monthly"
+    }
+  },
+  "transport": "stdio",
+  "command": "node",
+  "args": ["dist/index.js"]
+}

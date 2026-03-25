@@ -1,0 +1,53 @@
+{
+  "name": "legal-docs-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for generating legal documents — CGV, CGU, NDA, privacy policies, freelance contracts, and more. For freelancers, startups, and SMBs.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "legal-docs-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "legal",
+    "documents",
+    "cgv",
+    "cgu",
+    "nda",
+    "privacy-policy",
+    "gdpr",
+    "freelance",
+    "contract",
+    "french-law",
+    "mentions-legales",
+    "devis"
+  ],
+  "author": "Thomas Gorisse",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "TERMS.md",
+    "PRIVACY.md",
+    "server.json"
+  ]
+}
