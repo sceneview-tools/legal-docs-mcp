@@ -6,3 +6,5 @@ export { generateFreelanceContract } from "./freelance-contract.js";
 export { generateMentionsLegales } from "./mentions-legales.js";
 export { generateDevis } from "./devis.js";
 export { generateTermsOfService } from "./terms-of-service.js";
+export { generateRGPDPolicy } from "./rgpd-policy.js";
+export { generateCessionContrat } from "./cession-contrat.js";

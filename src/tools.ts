@@ -230,4 +230,116 @@ export const TOOLS: Tool[] = [
       required: ["company", "serviceName", "serviceDescription"],
     },
   },
+  {
+    name: "generate_rgpd_policy",
+    description:
+      "Generate a comprehensive GDPR/RGPD compliance document in French or English. Covers data inventory, processing activities, DPO, sub-processors, international transfers, data subject rights, security measures, DPIA, breach notification, and cookie policy. Fully compliant with EU Regulation 2016/679.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        company: companySchema,
+        language: { type: "string", enum: ["fr", "en"], description: "Language (default: fr)" },
+        dpoName: { type: "string", description: "Data Protection Officer name" },
+        dpoEmail: { type: "string", description: "DPO email" },
+        dataInventory: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              category: { type: "string", description: "Data category (e.g. 'Client data', 'HR data')" },
+              dataTypes: { type: "array", items: { type: "string" }, description: "Types of data collected" },
+              legalBasis: { type: "string", description: "Legal basis (consent, contract, legitimate interest, legal obligation)" },
+              retentionDays: { type: "number", description: "Retention period in days" },
+              recipients: { type: "array", items: { type: "string" }, description: "Data recipients" },
+            },
+            required: ["category", "dataTypes", "legalBasis", "retentionDays"],
+          },
+          description: "Inventory of personal data categories",
+        },
+        processingActivities: {
+          type: "array",
+          items: { type: "string" },
+          description: "List of data processing activities",
+        },
+        subProcessors: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              name: { type: "string" },
+              purpose: { type: "string" },
+              country: { type: "string" },
+              guarantees: { type: "string" },
+            },
+            required: ["name", "purpose", "country"],
+          },
+          description: "List of sub-processors",
+        },
+        transfersOutsideEU: { type: "boolean", description: "Whether data is transferred outside EU/EEA" },
+        transferMechanisms: { type: "array", items: { type: "string" }, description: "Transfer mechanisms (SCCs, adequacy decisions, etc.)" },
+        securityMeasures: { type: "array", items: { type: "string" }, description: "Technical and organizational security measures" },
+        dpiaRequired: { type: "boolean", description: "Whether a DPIA is required" },
+        dpiaTopics: { type: "array", items: { type: "string" }, description: "DPIA topics" },
+        consentMechanism: { type: "string", description: "Description of consent collection mechanism" },
+        breachProcedure: { type: "boolean", description: "Include breach notification procedure (default: true)" },
+        dataPortabilityFormat: { type: "string", description: "Format for data portability (default: CSV, JSON)" },
+        cookiePolicy: { type: "boolean", description: "Include cookie policy section" },
+        cookieCategories: { type: "array", items: { type: "string" }, description: "Cookie categories used" },
+      },
+      required: ["company", "language", "dataInventory", "processingActivities"],
+    },
+  },
+  {
+    name: "generate_cession_contrat",
+    description:
+      "Generate a business transfer agreement (contrat de cession de fonds de commerce) in French or English. Covers transferred assets, price, payment schedule, employee transfer (L.1224-1), non-compete, warranties, conditions precedent, and legal formalities. Compliant with Articles L.141-1 and following of the French Commercial Code.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        language: { type: "string", enum: ["fr", "en"], description: "Language" },
+        seller: companySchema,
+        buyer: clientSchema,
+        businessDescription: { type: "string", description: "Description of the business being transferred" },
+        assets: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              category: { type: "string", description: "Asset category (e.g. 'Equipment', 'Goodwill', 'Inventory')" },
+              description: { type: "string", description: "Asset description" },
+              estimatedValue: { type: "number", description: "Estimated value in currency" },
+            },
+            required: ["category", "description"],
+          },
+          description: "Assets being transferred",
+        },
+        totalPrice: { type: "number", description: "Total transfer price" },
+        currency: { type: "string", description: "Currency (default: EUR)" },
+        paymentSchedule: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              date: { type: "string", description: "Payment date (ISO format)" },
+              amount: { type: "number", description: "Payment amount" },
+              description: { type: "string", description: "Payment description" },
+            },
+            required: ["date", "amount", "description"],
+          },
+          description: "Payment schedule (default: full at signing)",
+        },
+        effectiveDate: { type: "string", description: "Effective date of the transfer (ISO format YYYY-MM-DD)" },
+        transitionPeriodDays: { type: "number", description: "Transition period in days (default: 90)" },
+        employeeTransfer: { type: "boolean", description: "Whether employees are transferred (L.1224-1)" },
+        employeeCount: { type: "number", description: "Number of employees transferred" },
+        nonCompeteYears: { type: "number", description: "Non-compete duration in years (default: 3)" },
+        nonCompeteRadius: { type: "string", description: "Non-compete geographic radius (e.g. '50 km')" },
+        warranties: { type: "array", items: { type: "string" }, description: "Custom seller warranties" },
+        conditions: { type: "array", items: { type: "string" }, description: "Custom conditions precedent" },
+        jurisdictionCity: { type: "string", description: "Jurisdiction city (default: Paris)" },
+        governingLaw: { type: "string", description: "Governing law (default: French)" },
+      },
+      required: ["language", "seller", "buyer", "businessDescription", "assets", "totalPrice", "effectiveDate"],
+    },
+  },
 ];
