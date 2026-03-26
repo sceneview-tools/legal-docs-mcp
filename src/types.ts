@@ -129,6 +129,66 @@ export interface TermsOfServiceParams {
   governingLaw?: string;
 }
 
+export interface RGPDPolicyParams {
+  company: CompanyInfo;
+  language: Language;
+  dpoName?: string;
+  dpoEmail?: string;
+  dataInventory: Array<{
+    category: string;
+    dataTypes: string[];
+    legalBasis: string;
+    retentionDays: number;
+    recipients?: string[];
+  }>;
+  processingActivities: string[];
+  subProcessors?: Array<{
+    name: string;
+    purpose: string;
+    country: string;
+    guarantees?: string;
+  }>;
+  transfersOutsideEU?: boolean;
+  transferMechanisms?: string[];
+  securityMeasures?: string[];
+  dpiaRequired?: boolean;
+  dpiaTopics?: string[];
+  consentMechanism?: string;
+  breachProcedure?: boolean;
+  dataPortabilityFormat?: string;
+  cookiePolicy?: boolean;
+  cookieCategories?: string[];
+}
+
+export interface CessionContratParams {
+  language: Language;
+  seller: CompanyInfo;
+  buyer: ClientInfo;
+  businessDescription: string;
+  assets: Array<{
+    category: string;
+    description: string;
+    estimatedValue?: number;
+  }>;
+  totalPrice: number;
+  currency?: string;
+  paymentSchedule?: Array<{
+    date: string;
+    amount: number;
+    description: string;
+  }>;
+  effectiveDate: string;
+  transitionPeriodDays?: number;
+  employeeTransfer?: boolean;
+  employeeCount?: number;
+  nonCompeteYears?: number;
+  nonCompeteRadius?: string;
+  warranties?: string[];
+  conditions?: string[];
+  jurisdictionCity?: string;
+  governingLaw?: string;
+}
+
 export interface UsageRecord {
   userId: string;
   month: string; // "YYYY-MM"

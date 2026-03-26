@@ -22,6 +22,8 @@ import {
   generateMentionsLegales,
   generateDevis,
   generateTermsOfService,
+  generateRGPDPolicy,
+  generateCessionContrat,
 } from "./templates/index.js";
 import { canGenerate, incrementUsage, remainingFree } from "./usage.js";
 import { DISCLAIMER_FR, DISCLAIMER_EN, FREE_TIER_LIMIT } from "./types.js";
@@ -34,11 +36,13 @@ import type {
   MentionsLegalesParams,
   DevisParams,
   TermsOfServiceParams,
+  RGPDPolicyParams,
+  CessionContratParams,
 } from "./types.js";
 
 const server = new McpServer({
   name: "legal-docs-mcp",
-  version: "1.0.0",
+  version: "2.0.0",
 });
 
 // Register all tools dynamically
@@ -110,6 +114,10 @@ function generateDocument(toolName: string, args: Record<string, unknown>): stri
       return generateDevis(args as unknown as DevisParams);
     case "generate_terms_of_service":
       return generateTermsOfService(args as unknown as TermsOfServiceParams);
+    case "generate_rgpd_policy":
+      return generateRGPDPolicy(args as unknown as RGPDPolicyParams);
+    case "generate_cession_contrat":
+      return generateCessionContrat(args as unknown as CessionContratParams);
     default:
       throw new Error(`Unknown tool: ${toolName}`);
   }
