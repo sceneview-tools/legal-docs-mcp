@@ -1,6 +1,6 @@
 {
   "name": "legal-docs-mcp",
-  "version": "2.0.0",
+  "version": "2.0.4",
   "description": "MCP server for generating legal documents — CGV, CGU, NDA, privacy policies, freelance contracts, and more. For freelancers, startups, and SMBs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,12 +33,12 @@
   "author": "SceneView Tools",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.1"
+    "@modelcontextprotocol/sdk": "^1.29.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2"
+    "vitest": "^3.1.4"
   },
   "engines": {
     "node": ">=18"
@@ -49,5 +49,15 @@
     "TERMS.md",
     "PRIVACY.md",
     "server.json"
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/sceneview"
+    },
+    {
+      "type": "polar",
+      "url": "https://polar.sh/sceneview"
+    }
   ]
 }
