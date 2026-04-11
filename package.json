@@ -1,6 +1,6 @@
 {
   "name": "legal-docs-mcp",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "MCP server for generating legal documents — CGV, CGU, NDA, privacy policies, freelance contracts, and more. For freelancers, startups, and SMBs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,8 +30,15 @@
     "mentions-legales",
     "devis"
   ],
-  "author": "SceneView Tools",
+  "author": "MCP Tools Lab",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcp-tools-lab/legal-docs-mcp.git"
+  },
+  "homepage": "https://github.com/mcp-tools-lab/legal-docs-mcp",
+  "bugs": "https://github.com/mcp-tools-lab/legal-docs-mcp/issues",
+  "mcpName": "io.github.mcp-tools-lab/legal-docs-mcp",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
   },

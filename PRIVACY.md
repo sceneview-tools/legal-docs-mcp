@@ -4,7 +4,7 @@
 
 ## 1. Data Controller
 
-Thomas Gorisse
+MCP Tools Lab — [https://github.com/mcp-tools-lab/legal-docs-mcp](https://github.com/mcp-tools-lab/legal-docs-mcp)
 Email: contact@legal-docs-mcp.dev
 
 ## 2. Data Collected

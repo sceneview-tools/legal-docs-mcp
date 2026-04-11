@@ -2,7 +2,7 @@
   "name": "legal-docs-mcp",
   "version": "1.0.0",
   "description": "MCP server for generating legal documents (CGV, CGU, NDA, privacy policies, freelance contracts, devis, mentions legales, ToS). For freelancers, startups, and SMBs.",
-  "author": "Thomas Gorisse",
+  "author": "MCP Tools Lab",
   "license": "MIT",
   "tools": [
     "generate_cgv",
